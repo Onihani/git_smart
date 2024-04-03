@@ -1,4 +1,4 @@
-name: Check Format
+name: Tests and Coverage
 
 on: pull_request
 
