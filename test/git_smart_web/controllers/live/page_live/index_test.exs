@@ -6,7 +6,8 @@ defmodule GitSmartWeb.PageLive.IndexTest do
     test "render the index template", %{conn: conn} do
       {:ok, lv, _html} = live(conn, ~p"/")
 
-      ["Elixir", "Go", "Rust", "Java", "TypeScript"] |> Enum.each(fn language ->
+      ["Elixir", "Go", "Rust", "Java", "TypeScript"]
+      |> Enum.each(fn language ->
         assert has_element?(lv, "button", language)
       end)
     end
