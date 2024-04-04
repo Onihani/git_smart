@@ -12,8 +12,12 @@ defmodule GitSmartWeb.PageLive.Index do
     page = params["page"] || 1
     repositories = Repositories.list(language, page)
 
-    socket = assign(socket, :repositories, repositories)
+    case repositories do
+      {:error, message} ->
+        {:noreply, socket |> put_flash(:error, message) |> assign(:repositories, [])}
 
-    {:noreply, socket}
+      repositories ->
+        {:noreply, assign(socket, :repositories, repositories)}
+    end
   end
 end

@@ -8,6 +8,8 @@ defmodule GitSmart.Repositories.GithubApi do
     Finch.build(:get, uri) |> Finch.request(@client) |> handle_response()
   end
 
+  defp handle_response({:ok, %{status: 403}}), do: {:error, "Rate limit exceeded"}
+
   defp handle_response({:ok, response}) do
     response.body
     |> Jason.decode!()
