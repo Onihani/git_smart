@@ -9,7 +9,7 @@ defmodule GitSmart.Application do
   def start(_type, _args) do
     children = [
       GitSmartWeb.Telemetry,
-      # GitSmart.Repo,
+      GitSmart.Repo,
       {DNSCluster, query: Application.get_env(:git_smart, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: GitSmart.PubSub},
       # Start the Finch HTTP client for sending emails

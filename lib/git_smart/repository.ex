@@ -19,6 +19,10 @@ defmodule GitSmart.Repositories.Repository do
     timestamps(type: :utc_datetime)
   end
 
+  def changeset(attrs) do
+    changeset(%__MODULE__{}, attrs)
+  end
+
   @doc false
   def changeset(repository, attrs) do
     repository
