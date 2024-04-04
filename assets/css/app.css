@@ -4,5 +4,5 @@
 
 /* This file is for your main application CSS */
 .btn-default {
-    @apply hover:brightness-95 text-zinc-100 font-bold rounded-full;
+    @apply hover:brightness-95 text-white font-bold rounded-full;
 }
