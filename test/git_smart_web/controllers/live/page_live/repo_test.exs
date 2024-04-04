@@ -13,4 +13,16 @@ defmodule GitSmartWeb.PageLive.RepoTest do
       assert has_element?(lv, "li#elixir>div>div>button")
     end
   end
+
+  describe "handle_event/3 - add repo" do
+    test "handle the event to add repo", %{conn: conn} do
+      {:ok, lv, _html} = live(conn, ~p"/")
+
+      refute has_element?(lv, "li#elixir>div>div", "Repo added!")
+
+      lv |> element("button[phx-click=add_repo]") |> render_click()
+
+      assert has_element?(lv, "li#elixir>div>div", "Repo added!")
+    end
+  end
 end
