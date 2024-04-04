@@ -8,7 +8,7 @@ defmodule GitSmartWeb.PageLive.Repo do
   end
 
   def handle_event("add_repo", _params, socket) do
-      socket = socket |> assign(is_added: true)
+    socket = socket |> assign(is_added: true)
 
     {:noreply, socket}
   end
